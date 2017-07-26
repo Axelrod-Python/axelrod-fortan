@@ -11,6 +11,12 @@ strategies = cdll.LoadLibrary('libstrategies.so')
 actions = {0: C, 1: D}
 original_actions = {C: 0, D: 1}
 
+known_deterministic = ['K33R',  # Grudger
+                       'KTITFORTATC',  # Tit For Tat
+                       'KTF2TC',  # Tit For 2 Tats
+                       'KPAVLOVC',  # WSLS
+                       ]
+
 
 class Player(axl.Player):
 
@@ -30,6 +36,8 @@ class Player(axl.Player):
         self.original_name = original_name
         self.original_function = self.original_name
         self.game = game
+        if original_name in known_deterministic:
+            self.classifier["stochastic"] = False
 
     def __enter__(self):
         return self
