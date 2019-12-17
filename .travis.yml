@@ -9,7 +9,6 @@ services:
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install gfortran
-  - export DISPLAY=:99.0
   - git clone https://github.com/Axelrod-Python/TourExec.git /tmp/TourExec
   - cd /tmp/TourExec
   - sudo make install
