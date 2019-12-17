@@ -3,10 +3,10 @@ python:
   - 3.5
   - 3.6
 before_install:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
   - sudo apt-get -qq update
   - sudo apt-get install gfortran xvfb
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
   - git clone https://github.com/Axelrod-Python/TourExec.git /tmp/TourExec
   - cd /tmp/TourExec
   - sudo make install
